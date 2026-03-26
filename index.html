@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>電卓</title>
+</head>
+<body>
+    <table class="calculator">
+        <tbody>
+            <tr>
+                <td colspan="4" align="right" id="result">0</td>                 
+            </tr>
+            <!--表示される場所で、ボタン4つ分の長さの結合で、0を右寄りに表示させる。idでクラス定義している-->
+            <tr>
+                <td><button class="button" onclick="clickbutton(this)">7</button></td>
+                <td><button class="button" onclick="clickbutton(this)">8</button></td>
+                <td><button class="button" onclick="clickbutton(this)">9</button></td>
+                <td><button class="button" onclick="clickbutton(this)">+</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="clickbutton(this)">4</button></td>
+                <td><button class="button" onclick="clickbutton(this)">5</button></td>
+                <td><button class="button" onclick="clickbutton(this)">6</button></td>
+                <td><button class="button" onclick="clickbutton(this)">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="clickbutton(this)">1</button></td>
+                <td><button class="button" onclick="clickbutton(this)">2</button></td>
+                <td><button class="button" onclick="clickbutton(this)">3</button></td>
+                <td><button class="button" onclick="clickbutton(this)">*</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="clickbutton(this)">0</button></td>
+                <td><button class="button" onclick="clickbutton(this)">00</button></td>
+                <td><button class="button" onclick="clickbutton(this)">.</button></td>
+                <td><button class="button" onclick="clickbutton(this)">/</button></td>
+            </tr>
+            <!-- 横の長さ1個分のボタンが4つで横1列。ボタンをクリックする宣言で、左から右に並ぶ数字を上から記述する-->
+            <tr>
+                <td colspan="2"><button class="under_button" onclick="clickbutton(this)">AC</button></td>
+                <td colspan="2"><button class="under_button" onclick="clickbutton(this)">=</button></td>
+            </tr>
+            <!--ボタン2つ分の長さの結合で、ボタンをクリックする宣言で、左から右に並ぶ記号を上から記述する-->
+
+        </tbody>
+    </table>
+
+    <script>
+        function clickbutton(target){
+            let result = document.getElementById("result")
+            let target_value = target.innerHTML;
+                if(target_value =="AC") {
+                    result.innerHTML = "0"
+                } else if (target_value == "=") {
+                    result.innerHTML = eval(result.innerHTML)
+                } else if (target_value == "+" && result.innerHTML.slice(-1) == "+") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "+";
+                } else if (target_value == "+" && result.innerHTML.slice(-1) == "-") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "-";
+                } else if (target_value == "+" && result.innerHTML.slice(-1) == "*") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "*";
+                } else if (target_value == "+" && result.innerHTML.slice(-1) == "/") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "/";
+                } else if (target_value == "-" && result.innerHTML.slice(-1) == "+") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "+";
+                } else if (target_value == "-" && result.innerHTML.slice(-1) == "-") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "-";
+                } else if (target_value == "-" && result.innerHTML.slice(-1) == "*") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "*";
+                } else if (target_value == "-" && result.innerHTML.slice(-1) == "/") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "/";
+                } else if (target_value == "*" && result.innerHTML.slice(-1) == "+") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "+";
+                } else if (target_value == "*" && result.innerHTML.slice(-1) == "-") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "-";
+                } else if (target_value == "*" && result.innerHTML.slice(-1) == "*") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "*";
+                } else if (target_value == "*" && result.innerHTML.slice(-1) == "/") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "/";
+                } else if (target_value == "/" && result.innerHTML.slice(-1) == "+") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "+";
+                } else if (target_value == "/" && result.innerHTML.slice(-1) == "-") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "-";
+                } else if (target_value == "/" && result.innerHTML.slice(-1) == "*") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "*";
+                } else if (target_value == "/" && result.innerHTML.slice(-1) == "/") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "/";
+                } else if (target_value == "." && result.innerHTML.slice(-1) == ".") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + ".";
+                } else if (target_value == "." && result.innerHTML.slice(-1) == "+") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "+";
+                } else if (target_value == "." && result.innerHTML.slice(-1) == "-") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "-";
+                } else if (target_value == "." && result.innerHTML.slice(-1) == "*") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "*";
+                } else if (target_value == "." && result.innerHTML.slice(-1) == "/") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + "/";   
+                } else if (target_value == "+" && result.innerHTML.slice(-1) == ".") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + ".";
+                } else if (target_value == "-" && result.innerHTML.slice(-1) == ".") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + ".";
+                } else if (target_value == "*" && result.innerHTML.slice(-1) == ".") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + ".";
+                } else if (target_value == "/" && result.innerHTML.slice(-1) == ".") {
+                    let answer = result.innerHTML.slice(0, -1);
+                    result.innerHTML = answer + ".";
+                }
+                else
+                {
+                    if (result.innerHTML == "0")
+                    {
+                        result.innerHTML = target_value
+                    }else if (result.innerHTML == "00") {
+                        result.innerHTML = target_value
+                    } else {
+                        result.innerHTML += target_value
+                    }
+                }   
+        }
+        // target_valueはこれから入力するボタンを表している
+        // result.innerHTMLはresultなので、答えを表示している画面の表示内容を表す
+        // 59行目から106行目については、答えを表示している画面の一番右が演算子ならば、これから入力するのが演算子であればその演算子を一番右に表示されることを表している
+        // 110行目から121行目については、小数点を入力した後に演算子を入力すると演算子が一番右に表示されることを表している
+        // 119行目から130行目については、110行目から121行目の逆の順番で入力した時の結果を表している
+        // 131行目から133行目については、小数点が一番右に表示してあったら連続で小数点を入力できないことを表している
+        // 137行目から139行目については、一番右に０や00が表示してあって０を入力したら、入力した方の０を表示することを表している
+        // 140行目から141行目については、一番右に０や00が表示してあって00を入力したら、入力した方の00を表示することを表している
+        // 142行目と143行目でようやく、普通に計算することを表している
+
+    </script>
+</body>
+</html>
